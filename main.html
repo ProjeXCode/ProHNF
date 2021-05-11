@@ -1,0 +1,95 @@
+<style>
+#row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr)
+}
+#api_id_input{
+  width:20%
+}
+#api_button{
+  background: blue;
+  border:1px solid blue;
+  padding: 10px 5px;
+  border-radius:6px;
+  cursor:pointer;
+  color:white
+}
+input{
+  border-radius:6px;
+  width:80%
+}
+
+</style>
+<p>https://cdn.jsdelivr.net/gh/ProjeXCode/ProHNF/<span style='background:green'>TOTO02</span></p>
+<p>Silahkan Ambil Idnya yang saya tandai Hijau <span style='background:green'>TOTO02</span>.
+<div class='meta-data-id'>
+  <h3 class='title-meta-data'>Input ID</h3>
+<input id='api_id_input'/>
+<span id='api_button'> Submit</span>
+</div>
+<div id='row' class='meta-data-isi'>
+<div id='meta-data'>
+<h3 class='title-meta-data'>Kode Pelanggan</h3>
+<input id='prohnf_kode'/></div>
+<div id='meta-data'>
+<h3 class='title-meta-data'>Nama Pelanggan</h3>
+<input id='prohnf_nama'/></div>
+<div id='meta-data'>
+<h3 class='title-meta-data'>Alamat Pelanggan</h3>
+<input id='prohnf_alamat'/></div>
+<div id='meta-data'>
+<h3 class='title-meta-data'>HP Pelanggan</h3>
+<input id='prohnf_hp'/></div>
+     <div id='meta-data'>
+<h3 class='title-meta-data'>CP Pelanggan</h3>
+<input id='prohnf_cp'/></div>
+  <div id='meta-data'>
+<h3 class='title-meta-data'>Koordinat Pelanggan</h3>
+<input id='prohnf_koordinat'/></div>
+    <div id='meta-data'>
+<h3 class='title-meta-data'>Rating Pelanggan</h3>
+<input id='prohnf_rating'/></div>
+      <div id='meta-data'>
+<h3 class='title-meta-data'>Token Pelanggan</h3>
+<input id='prohnf_token'/></div>
+      <div id='meta-data'>
+<h3 class='title-meta-data'>Nama User</h3>
+<input id='prohnf_nama-user'/></div>
+      <div id='meta-data'>
+<h3 class='title-meta-data'>Username</h3>
+<input id='prohnf_username'/></div>
+      <div id='meta-data'>
+<h3 class='title-meta-data'>Nama Sales</h3>
+<input id='prohnf_nama-sales'/></div>
+      <div id='meta-data'>
+<h3 class='title-meta-data'>Devisi Sales</h3>
+<input id='prohnf_devisi'/></div>
+<script>
+$('#api_button').click(function () {
+  let id = $('#api_id_input').val();
+  $('#api_id_input').val('Sedang Mengambil Data').attr("disabled", 'disabled');
+  fetch('https://cdn.jsdelivr.net/gh/ProjeXCode/ProHNF/' + id + '.json')
+    .then(res => res.json())
+    .then(res => {
+      $('#prohnf_kode').val(res.kode_pelanggan);
+      $('#prohnf_nama').val(res.nama_pelanggan);
+      $('#prohnf_alamat').val(res.alamat_pelanggan);
+      $('#prohnf_hp').val(res.hp_pelanggan);
+      $('#prohnf_cp').val(res.cp_pelanggan);
+      $('#prohnf_koordinat').val(res.koordinat_pelanggan);
+      $('#prohnf_rating').val(res.rating_pelanggan);
+      $('#prohnf_token').val(res.token_pelanggan);
+      $('#prohnf_nama-user').val(res.nama_user);
+      $('#prohnf_username').val(res.username_user);
+      $('#prohnf_nama-sales').val(res.nama_sales);
+      $('#prohnf_devisi').val(res.divisi_sales);
+     })
+    .then(() => {
+      $('#api_id_input').val('Success Receive Data').removeAttr("disabled", 'disabled');
+    })
+    .catch(e => {
+     $('#api_id_input').val('Success Receive Data').removeAttr("disabled", 'disabled');
+      console.log(e)
+    });
+})
+</script>
