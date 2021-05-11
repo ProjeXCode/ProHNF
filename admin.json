@@ -1,0 +1,16 @@
+{"view":"vw_18a",
+ "data":[
+   {"kode_pelanggan":"admin01",
+    "nama_pelanggan":"ALL CUSTOMERS",
+    "alamat_pelanggan":"-",
+    "hp_pelanggan":"-",
+    "cp_pelanggan":"-",
+    "koordinat_pelanggan":"-1.111111,111.111111",
+    "rating_pelanggan":"Baik",
+    "token_pelanggan":"-",
+    "nama_user":"Admin 1",
+    "username_user":"ad01",
+    "nama_sales":"-",
+    "divisi_sales":"-"}
+   ]
+}
